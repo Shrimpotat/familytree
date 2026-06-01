@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /familytree/
+    
+    # Route API requests to api.php
+    RewriteRule ^api/(.*)$ api.php?path=$1 [QSA,L]
+    
+    # Keep other files as-is
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+</IfModule>
